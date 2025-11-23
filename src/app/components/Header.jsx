@@ -14,7 +14,7 @@ const Header = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center">
                     <div>
-                        <Link href={'/'} className='text-2xl font-semibold text-gray-900'>Header Landing</Link>
+                        <Link href={'/'} className='text-2xl font-semibold text-gray-900'>Rahat Hossain</Link>
                     </div>
                     <div>
                         <nav>
