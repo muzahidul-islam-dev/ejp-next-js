@@ -27,14 +27,14 @@ export default function ProductsPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
-              <Button
+              <button
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category)}
-                className="capitalize"
+                className={`btn text-white ${selectedCategory == category ? 'btn-info' : 'btn-success'}`}
               >
                 {category}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function ProductsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
             <Link key={product.id} href={`/products/${product.id}`}>
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full flex flex-col">
+              <div className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full flex flex-col border border-gray-200 rounded-lg">
                 <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
@@ -51,7 +51,7 @@ export default function ProductsPage() {
                 />
                 <div className="p-4 flex flex-col flex-1">
                   <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 flex-1">{product.description}</p>
+                  <p className="text-sm mb-4 flex-1">{product.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-blue-600">${product.price}</span>
                     <span className={`text-sm ${product.stock > 0 ? "text-green-600" : "text-red-600"}`}>
@@ -59,14 +59,14 @@ export default function ProductsPage() {
                     </span>
                   </div>
                 </div>
-              </Card>
+              </div>
             </Link>
           ))}
         </div>
 
         {filteredProducts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-lg text-muted-foreground">No products found in this category.</p>
+            <p className="text-lg">No products found in this category.</p>
           </div>
         )}
       </div>

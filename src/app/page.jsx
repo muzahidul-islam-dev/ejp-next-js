@@ -57,16 +57,16 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-4 py-16 bg-slate-100 dark:bg-slate-900">
+      <section className="px-4 py-16 bg-slate-100">
         <div className="max-w-6xl mx-auto text-center space-y-6">
           <h2 className="text-3xl font-bold">Exclusive Deals Waiting</h2>
           <p className="text-lg text-muted-foreground">
             Browse our full collection and find exactly what youre looking for
           </p>
           <Link href="/products">
-            <Button size="lg" variant="default">
+            <button className="btn btn-info text-white">
               View All Products
-            </Button>
+            </button>
           </Link>
         </div>
       </section>

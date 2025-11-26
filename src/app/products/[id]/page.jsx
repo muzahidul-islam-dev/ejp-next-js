@@ -56,9 +56,9 @@ export default function ProductDetail({ params }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           
           <div>
-            <Card className="overflow-hidden">
+            <div className="overflow-hidden">
               <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full h-96 object-cover" />
-            </Card>
+            </div>
           </div>
 
           
@@ -106,10 +106,10 @@ export default function ProductDetail({ params }) {
                 </div>
 
                 
-                <Button onClick={handleAddToCart} size="lg" className="w-full bg-blue-600 hover:bg-blue-700 gap-2">
+                <button onClick={handleAddToCart} size="lg" className="w-full btn btn-info text-white">
                   <ShoppingCart className="w-5 h-5" />
                   {added ? "Added to Cart!" : "Add to Cart"}
-                </Button>
+                </button>
               </div>
             )}
 
@@ -120,7 +120,7 @@ export default function ProductDetail({ params }) {
             )}
 
             
-            <Card className="p-6 bg-slate-50 dark:bg-slate-900">
+            <div className="p-6 bg-slate-50 dark:bg-slate-900">
               <h3 className="font-semibold mb-4">Product Details</h3>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -134,7 +134,7 @@ export default function ProductDetail({ params }) {
                   <span className="font-semibold">Stock:</span> {product.stock} units
                 </li>
               </ul>
-            </Card>
+            </div>
           </div>
         </div>
 
@@ -147,7 +147,7 @@ export default function ProductDetail({ params }) {
               .slice(0, 4)
               .map((relatedProduct) => (
                 <Link key={relatedProduct.id} href={`/products/${relatedProduct.id}`}>
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                  <div className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
                     <img
                       src={relatedProduct.image || "/placeholder.svg"}
                       alt={relatedProduct.name}
@@ -157,7 +157,7 @@ export default function ProductDetail({ params }) {
                       <h3 className="font-semibold mb-2">{relatedProduct.name}</h3>
                       <p className="text-2xl font-bold text-blue-600">${relatedProduct.price}</p>
                     </div>
-                  </Card>
+                  </div>
                 </Link>
               ))}
           </div>
