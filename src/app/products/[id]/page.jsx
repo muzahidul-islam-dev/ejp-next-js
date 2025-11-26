@@ -113,14 +113,9 @@ export default function ProductDetail({ params }) {
               </div>
             )}
 
-            {product.stock === 0 && (
-              <Button disabled size="lg" className="w-full">
-                Out of Stock
-              </Button>
-            )}
 
             
-            <div className="p-6 bg-slate-50 dark:bg-slate-900">
+            <div className="p-6 bg-slate-50">
               <h3 className="font-semibold mb-4">Product Details</h3>
               <ul className="space-y-2 text-sm">
                 <li>

@@ -10,7 +10,7 @@ const featuredProducts = [
 ]
 
 export const metadata = {
-  title: "ShopHub - Modern Ecommerce",
+  title: "ShoppingMall - Modern Ecommerce",
   description: "Discover premium products at unbeatable prices",
 }
 
@@ -21,7 +21,7 @@ export default function Home() {
       <section className="relative px-4 py-20 md:py-32 bg-gradient-to-br from-slate-900 to-slate-800">
         <div className="max-w-6xl mx-auto">
           <div className="text-center text-white space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold">Welcome to ShopHub</h1>
+            <h1 className="text-4xl md:text-6xl font-bold">Welcome to ShoppingMall</h1>
             <p className="text-lg md:text-xl text-slate-300">Discover premium products at unbeatable prices</p>
             <Link href="/products">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700">

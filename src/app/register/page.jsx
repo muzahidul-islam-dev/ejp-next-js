@@ -58,7 +58,7 @@ export default function RegisterPage() {
     }
 
     // Check if user already exists
-    const users = JSON.parse(localStorage.getItem("shophub_users") || "[]")
+    const users = JSON.parse(localStorage.getItem("ShoppingMall_users") || "[]")
     if (users.some((u) => u.email === formData.email)) {
       setError("Email already registered")
       return
@@ -70,7 +70,7 @@ export default function RegisterPage() {
       email: formData.email,
       password: formData.password,
     })
-    localStorage.setItem("shophub_users", JSON.stringify(users))
+    localStorage.setItem("ShoppingMall_users", JSON.stringify(users))
 
     setSuccess(true)
     setTimeout(() => {
@@ -85,7 +85,7 @@ export default function RegisterPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-slate-900 mb-2">Create Account</h1>
-            <p className="text-slate-600">Join ShopHub today and start shopping</p>
+            <p className="text-slate-600">Join ShoppingMall today and start shopping</p>
           </div>
 
           {/* Success Message */}

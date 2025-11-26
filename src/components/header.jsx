@@ -12,11 +12,11 @@ export function Header() {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
   return (
-    <header className="border-b border-border sticky top-0 z-50 bg-background">
+    <header className="shadow top-0 z-50 bg-background">
       <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-blue-600">
-          ShopHub
+          ShoppingMall
         </Link>
 
         {/* Desktop Menu */}

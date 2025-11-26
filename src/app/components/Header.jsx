@@ -16,7 +16,7 @@ const Header = () => {
             <header className="border-b border-border top-0 z-50 bg-background">
                 <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
                     <Link href="/" className="text-2xl font-bold text-blue-600">
-                        ShopHub
+                        ShoppingMall
                     </Link>
 
                     {/* Desktop Menu */}

@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-white">ShopHub</h3>
+            <h3 className="text-2xl font-bold text-white">ShoppingMall</h3>
             <p className="text-slate-400">Your trusted online shopping destination for premium products.</p>
           </div>
 
@@ -46,7 +46,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:support@shophub.com" className="text-slate-400 hover:text-white transition">
+                <a href="mailto:support@ShoppingMall.com" className="text-slate-400 hover:text-white transition">
                   Contact Us
                 </a>
               </li>
@@ -83,7 +83,7 @@ export function Footer() {
 
         {/* Divider */}
         <div className="border-t border-slate-700 pt-8">
-          <p className="text-center text-slate-400">&copy; {currentYear} ShopHub. All rights reserved.</p>
+          <p className="text-center text-slate-400">&copy; {currentYear} ShoppingMall. All rights reserved.</p>
         </div>
       </div>
     </footer>

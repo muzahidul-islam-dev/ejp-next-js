@@ -34,12 +34,12 @@ export default function CartPage() {
         <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Cart Items */}
+          
           <div className="lg:col-span-2 space-y-4">
             {cartItems.map((item) => (
               <Card key={item.id} className="p-4 md:p-6">
                 <div className="flex gap-4">
-                  {/* Product Image */}
+                  
                   <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0">
                     <img
                       src={item.image || "/placeholder.svg"}
@@ -48,14 +48,14 @@ export default function CartPage() {
                     />
                   </div>
 
-                  {/* Product Info */}
+                  
                   <div className="flex-1 min-w-0">
                     <Link href={`/products/${item.id}`}>
                       <h3 className="font-semibold text-lg hover:text-blue-600 truncate">{item.name}</h3>
                     </Link>
                     <p className="text-muted-foreground mb-4">${item.price} each</p>
 
-                    {/* Quantity Selector */}
+                    
                     <div className="flex items-center gap-2 mb-4">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -75,7 +75,7 @@ export default function CartPage() {
                     </div>
                   </div>
 
-                  {/* Price & Remove */}
+                  
                   <div className="text-right flex flex-col justify-between">
                     <p className="text-xl font-bold text-blue-600">${(item.price * item.quantity).toFixed(2)}</p>
                     <button
@@ -90,8 +90,6 @@ export default function CartPage() {
               </Card>
             ))}
           </div>
-
-          {/* Order Summary */}
           <div>
             <Card className="p-6 sticky top-24 space-y-6">
               <h2 className="text-2xl font-bold">Order Summary</h2>
@@ -117,15 +115,15 @@ export default function CartPage() {
               </div>
 
               <Link href="/checkout">
-                <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700">
+                <button size="lg" className="btn btn-info text-white">
                   Proceed to Checkout
-                </Button>
+                </button>
               </Link>
 
               <Link href="/products">
-                <Button variant="outline" size="lg" className="w-full bg-transparent">
+                <button className="w-full btn btn-info text-white">
                   Continue Shopping
-                </Button>
+                </button>
               </Link>
             </Card>
           </div>
