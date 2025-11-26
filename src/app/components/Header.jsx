@@ -1,67 +1,80 @@
 "use client"
+import { useCart } from '@/hook/useCart';
+import { Menu, ShoppingCart, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
 const Header = () => {
-    const [user, setUser] = useState(false)
-    const [loading, setLoading] = useState(false)
 
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const { cartItems } = useCart()
+    const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
     return (
         <div>
-            <section className="py-5 bg-white">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-center">
-                    <div>
-                        <Link href={'/'} className='text-2xl font-semibold text-gray-900'>Rahat Hossain</Link>
-                    </div>
-                    <div>
-                        <nav>
-                            <ul>
-                                <li><Link href="/" className='text-gray-800'>Home</Link></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        {user && !loading ? (
-                            <div className="relative">
-                                <div className="flex gap-5">
-                                    <Link
-                                        href={'/profile'}
-                                        className="flex items-center gap-2 group"
-                                    >
-                                        <Image
-                                            src={''}
-                                            alt={''}
-                                            className="peer w-8 h-8 rounded-full"
-                                        />
+            <header className="border-b border-border sticky top-0 z-50 bg-background">
+                <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+                    <Link href="/" className="text-2xl font-bold text-blue-600">
+                        ShopHub
+                    </Link>
 
-                                        <div className="peer-hover:block hidden absolute right-1/2 top-full mt-2 z-50 w-48 bg-white border border-gray-100 rounded-lg shadow-lg p-2">
-                                            <p className="px-4 py-2 text-sm font-medium text-gray-900">{'Rahat Hossain'}</p>
-                                        </div>
-                                    </Link>
-                                    <button
-                                        className="px-3 cursor-pointer py-2 rounded-lg bg-red-500 text-white"
-                                    >
-                                        Logout
-                                    </button>
-                                </div>
-                            </div>
-                        ) : (
-                            <>
-                                <div className='flex gap-2'>
-                                    <Link href={'/auth/sign-in'} className="hidden text-gray-900 sm:inline-flex bg-transparent hover:text-white duration-200 border hover:bg-gray-900 border-gray-900 px-4 py-2 rounded-lg">
-                                        Sign In
-                                    </Link>
-                                    <Link className='px-4 py-2 rounded-lg bg-gray-900 text-white' href={'/auth/sign-up'}>Sign Up</Link>
-                                </div>
-                            </>
-                        )}
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-center gap-8">
+                        <Link href="/" className="hover:text-blue-600 transition">
+                            Home
+                        </Link>
+                        <Link href="/products" className="hover:text-blue-600 transition">
+                            Products
+                        </Link>
+                        <Link href="/login" className="hover:text-blue-600 transition">
+                            Sign In
+                        </Link>
+                        <Link href="/admin" className="hover:text-blue-600 transition">
+                            Admin
+                        </Link>
                     </div>
-                </div>
-            </div>
-        </section>
+
+                    {/* Cart & Mobile Menu */}
+                    <div className="flex items-center gap-4">
+                        <Link href="/cart">
+                            <button className="relative">
+                                <ShoppingCart className="w-6 h-6" />
+                                {cartCount > 0 && (
+                                    <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                        {cartCount}
+                                    </span>
+                                )}
+                            </button>
+                        </Link>
+
+                        {/* Mobile Menu Button */}
+                        <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        </button>
+                    </div>
+                </nav>
+
+                {/* Mobile Menu */}
+                {mobileMenuOpen && (
+                    <div className="md:hidden border-t border-border">
+                        <div className="px-4 py-4 space-y-4">
+                            <Link href="/" className="block hover:text-blue-600">
+                                Home
+                            </Link>
+                            <Link href="/products" className="block hover:text-blue-600">
+                                Products
+                            </Link>
+                            <Link href="/login" className="block hover:text-blue-600">
+                                Sign In
+                            </Link>
+                            <Link href="/admin" className="block hover:text-blue-600">
+                                Admin
+                            </Link>
+                        </div>
+                    </div>
+                )}
+            </header>
         </div>
     );
 };

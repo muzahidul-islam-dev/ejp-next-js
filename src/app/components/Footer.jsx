@@ -4,57 +4,89 @@ import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear()
     return (
         <div>
-            <footer className="bg-gray-900 text-white py-12">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        <div>
-                            <h3 className="font-bold text-lg mb-4">Contact Us</h3>
-                            <div className="flex items-center gap-2 mb-2">
-                                <Mail size={18} />
-                                <a href="mailto:rahat1470.com@gmail.com">
-                                    rahat1470.com@gmail.com
-                                </a>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Phone size={18} />
-                                <a href="tel:+8801907641877">
-                                    +8801907641877
-                                </a>
-                            </div>
+            <footer className="bg-slate-900 text-slate-200 border-t border-slate-700">
+                <div className="max-w-6xl mx-auto px-4 py-16">
+                    {/* Footer Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                        {/* Brand */}
+                        <div className="space-y-4">
+                            <h3 className="text-2xl font-bold text-white">ShopHub</h3>
+                            <p className="text-slate-400">Your trusted online shopping destination for premium products.</p>
                         </div>
 
+                        {/* Quick Links */}
                         <div>
-                            <h3 className="font-bold text-lg mb-4">Follow Us</h3>
-                            <div className="flex gap-4">
-                                <a href="#">
-                                    <Facebook size={24} />
-                                </a>
-                                <a href="#">
-                                    <Twitter size={24} />
-                                </a>
-                                <a href="#">
-                                    <Linkedin size={24} />
-                                </a>
-                            </div>
+                            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+                            <ul className="space-y-2">
+                                <li>
+                                    <Link href="/" className="text-slate-400 hover:text-white transition">
+                                        Home
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/products" className="text-slate-400 hover:text-white transition">
+                                        Products
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/cart" className="text-slate-400 hover:text-white transition">
+                                        Cart
+                                    </Link>
+                                </li>
+                            </ul>
                         </div>
 
+                        {/* Customer Service */}
                         <div>
-                            <h3 className="font-bold text-lg mb-4">Legal</h3>
-                            <div className="space-y-2">
-                                <Link href="#" className="block">
-                                    Privacy Policy
-                                </Link>
-                                <Link href="#" className="block">
-                                    Terms of Service
-                                </Link>
-                            </div>
+                            <h4 className="font-semibold text-white mb-4">Customer Service</h4>
+                            <ul className="space-y-2">
+                                <li>
+                                    <Link href="/login" className="text-slate-400 hover:text-white transition">
+                                        Sign In
+                                    </Link>
+                                </li>
+                                <li>
+                                    <a href="mailto:support@shophub.com" className="text-slate-400 hover:text-white transition">
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" className="text-slate-400 hover:text-white transition">
+                                        FAQ
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Legal */}
+                        <div>
+                            <h4 className="font-semibold text-white mb-4">Legal</h4>
+                            <ul className="space-y-2">
+                                <li>
+                                    <a href="#" className="text-slate-400 hover:text-white transition">
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" className="text-slate-400 hover:text-white transition">
+                                        Terms of Service
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" className="text-slate-400 hover:text-white transition">
+                                        Shipping Info
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-                        <p>&copy; {new Date().getFullYear()} Rahat Hossain. All rights reserved.</p>
+                    {/* Divider */}
+                    <div className="border-t border-slate-700 pt-8">
+                        <p className="text-center text-slate-400">&copy; {currentYear} ShopHub. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
